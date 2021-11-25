@@ -17,6 +17,28 @@ public class ConsoleController {
         this.lectorService = lectorService;
     }
 
+    public void run() {
+        System.out.println("Available commands:");
+        System.out.println("1. Who is head of department {department_name}");
+        System.out.println("2. Show {department_name} statistics.");
+        System.out.println("3. Show the average salary for the department {department_name}");
+        System.out.println("4. Show count of employee for {department_name}.");
+        System.out.println("5. Global search by {template}");
+        boolean variable = true;
+        while (variable) {
+            System.out.print("Choose one the options above. Enter number: ");
+            Scanner scan = new Scanner(System.in);
+            String i = scan.next();
+            consoleCommand(Integer.parseInt(i));
+            System.out.print("If you wish to exit, enter digit 0,"
+                    + " or enter any digit to continue: ");
+            int exit = scan.nextInt();
+            if (exit == 0) {
+                variable = false;
+            }
+        }
+    }
+
     public void consoleCommand(int i) {
         Scanner scan = new Scanner(System.in);
         String departmentName = "";
